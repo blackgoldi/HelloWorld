@@ -10,4 +10,17 @@ export default defineConfig({
       },
     }),
   ],
+  base: process.env.NODE_ENV == 'production'?'/HelloWorld/':'',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        // Предсказуемые имена файлов для GH Pages
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
+      }
+    }
+  }
 })

@@ -7,7 +7,7 @@ export function RoadmapPage() {
 	const [shown, setShown] = React.useState(false);
 
 	React.useEffect(() => {
-		fetch('../src/files/instructions.md')
+		fetch('/files/instructions.md')
 			.then((res) => res.text())
 			.then(setMarkdown);
 	}, []);
